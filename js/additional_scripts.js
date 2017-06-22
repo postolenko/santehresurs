@@ -26,7 +26,7 @@ $(document).ready(function() {
 
         if( hoverItemHeight <= 0 ) {
 
-        	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").animate({"height" : listHeight + "px"}, 300);
+        	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").animate({"height" : listHeight + "px"}, 800);
 
         	heightInterval = setInterval(function() {
 
@@ -61,7 +61,7 @@ $(document).ready(function() {
 
         	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").css({"overflow" : "hidden"});     	
 
-        	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").animate({"height" : 0 + "px"}, 300);
+        	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").animate({"height" : 0 + "px"}, 800);
 
         	// $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").removeClass("hover_class");        	
 
