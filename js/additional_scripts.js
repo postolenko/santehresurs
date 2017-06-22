@@ -19,7 +19,7 @@ $(document).ready(function() {
 
         if( hoverItemHeight <= 0 ) {
 
-        	hoverItem.animate({"height" : listHeight + "px"}, 500);
+        	hoverItem.animate({"height" : listHeight + "px"}, 350);
 
         	heightInterval = setInterval(function() {
 
@@ -48,7 +48,7 @@ $(document).ready(function() {
 
         	hoverItem.removeClass("hover_class");
 
-        	hoverItem.animate({"height" : 0 + "px"}, 500);
+        	hoverItem.animate({"height" : 0 + "px"}, 350);
 
         }
 
