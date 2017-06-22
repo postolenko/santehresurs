@@ -34,6 +34,93 @@ $(document).ready(function() {
 
     });
 
+    // ----------------------------
+
+    $(function() {
+
+        var sidebarAutoHeight;
+        var siddebarHeightInterval;
+
+        $("#sidebar").click(function() {
+
+            sidebarAutoHeight = $(".sidebar-nav-list").height();    
+
+            if( $(".sidebar-nav").height() <= 0 ) {
+
+                $(this).addClass("active");
+
+                $(".sidebar-nav").animate({
+                    "height" : sidebarAutoHeight + "px"
+                }, 400);
+
+                siddebarHeightInterval = setInterval(function() {
+
+                    if( $(".sidebar-nav").outerHeight() >= sidebarAutoHeight ) {
+
+                        clearInterval(siddebarHeightInterval);
+
+                        // $(".sidebar-nav").removeClass("hover_class");
+
+                        $(".sidebar-nav").css({
+                            "height" : "auto",
+                            "overflow" : "initial"
+                        });
+
+                         if($(".promo-image-block").length > 0) {
+
+                            $(".promo-image-block").removeClass("full_width");
+
+                        }
+
+                    }
+
+                }, 70);
+
+                
+                 
+            } else {               
+
+                $(this).removeClass("active");
+
+                $(".sidebar-nav").css({
+                    "height" : "auto",
+                    "overflow" : "hidden"
+                });
+
+                $(".sidebar-nav").animate({
+                    "height" : 0 + "px"
+                }, 400);
+
+                if($(".promo-image-block").length > 0) {
+
+                    $(".promo-image-block").addClass("full_width");
+
+                }
+
+            }
+
+
+        });
+
+    });
+
+
+    // ----------------------------
+
+    $(".scroll-top").click(function () {
+
+        $("body,html").animate({
+
+            scrollTop: 0
+
+        }, 1000);
+
+        return false;
+
+    });
+
+    // ----------------------------
+
 
     function getFooterPosition() {
 
