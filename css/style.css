@@ -1870,7 +1870,6 @@ section.pomo-sect {
     overflow: hidden;
     height: 520px;
     position: relative;
-    outline: 1px solid red;
 
     -webkit-transition-property: width;
     -webkit-transition-duration: .7s;
