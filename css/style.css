@@ -1298,6 +1298,7 @@ section.pomo-sect {
 
 .sidebar {
     width: 27%;
+    /*position: relative;*/
     position: absolute;
     top: 0;
     left: 0;
@@ -1432,9 +1433,14 @@ section.pomo-sect {
 .sidebar-nav {
     /*height: 0;*/
     height: auto;
+    width: 100%;
+/*    position: absolute;
+    top: 100%;
+    left: 0;*/
     overflow: initial;
     border: 1px solid #9f9f9f;
     border-top: none;
+    background: rgba(255, 255, 255, 1);
 }
 
 .sidebar-nav.hover_class {
@@ -1801,7 +1807,7 @@ section.pomo-sect {
 
 .inner-nav-wrapp.hover_class {
     overflow: initial;
-    height: auto;    
+    height: auto;  
 }
 
 .inner-nav li .inner-nav {

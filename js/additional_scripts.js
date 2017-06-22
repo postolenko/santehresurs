@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
-    $(".sidebar-nav-list li").hoverIntent({
+    $(".sidebar-nav-list > li").hoverIntent({
 	      over: makeTallMenuItemSection,
 	      out: makeShortMenuItemSection,
-	      timeout: 1200
+	      timeout: 1600
 	  });
 
 	var hoverItem;
@@ -12,22 +12,31 @@ $(document).ready(function() {
 
     function makeTallMenuItemSection(){
 
-    	hoverItem = $(this).children(".inner-nav-wrapp");
-    	listHeight = hoverItem.children(".inner-nav").height();
+    	hoverItemIndex = $(this).index();
 
-        hoverItemHeight = $(this).children(".inner-nav-wrapp").height();
+    	console.log(hoverItemIndex);
+
+    	// listHeight = hoverItem.children(".inner-nav").height();
+
+    	listHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp .inner-nav").height();
+
+        // hoverItemHeight = $(this).children(".inner-nav-wrapp").height();
+
+        hoverItemHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height();
 
         if( hoverItemHeight <= 0 ) {
 
-        	hoverItem.animate({"height" : listHeight + "px"}, 300);
+        	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").animate({"height" : listHeight + "px"}, 300);
 
         	heightInterval = setInterval(function() {
 
-        		if( hoverItem.height() >=  listHeight ) {
+        		if( $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height() >=  listHeight ) {
 
         			clearInterval(heightInterval);
 
-        			hoverItem.addClass("hover_class");
+        			// $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").addClass("hover_class");
+
+        			$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").css({"overflow" : "initial"});
 
         		}
 
@@ -39,16 +48,22 @@ $(document).ready(function() {
 
     function makeShortMenuItemSection(){
 
-    	hoverItem = $(this).children(".inner-nav-wrapp");
-    	listHeight = hoverItem.children(".inner-nav").height();
+    	// hoverItem = $(this).children(".inner-nav-wrapp");
+    	// listHeight = hoverItem.children(".inner-nav").height();
 
-        hoverItemHeight = $(this).children(".inner-nav-wrapp").height();
+        // hoverItemHeight = $(this).children(".inner-nav-wrapp").height();
+
+		hoverItemIndex = $(this).index();
+		listHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp .inner-nav").height();
+		hoverItemHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height();
 
         if( hoverItemHeight >= listHeight  ) {
 
-        	hoverItem.removeClass("hover_class");
+        	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").css({"overflow" : "hidden"});     	
 
-        	hoverItem.animate({"height" : 0 + "px"}, 300);
+        	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").animate({"height" : 0 + "px"}, 300);
+
+        	// $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").removeClass("hover_class");        	
 
         }
 
