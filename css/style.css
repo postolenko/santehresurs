@@ -1493,7 +1493,7 @@ section.promo-sect {
 .sidebar-nav {
     height: auto;
     width: 100%;
-    overflow: initial;
+    /*overflow: hidden;*/
     border-left: 1px solid #9f9f9f;
     border-right: 1px solid #9f9f9f;
     background: rgba(255, 255, 255, 1);
@@ -1509,9 +1509,9 @@ section.promo-sect {
     border-bottom: 1px solid #9f9f9f;
 }
 
-.sidebar-nav.hover_class {
+/*.sidebar-nav.hover_class {
     overflow: hidden;
-}
+}*/
 
 .sidebar-nav li {
     position: relative;
@@ -1867,28 +1867,25 @@ section.promo-sect {
     height: 0;
 }
 
-.inner-nav-wrapp.hover_class {
-    overflow: initial;
-    height: auto;  
-}
-
-.inner-nav li .inner-nav {
+.inner-nav li a + .inner-nav {
     display: none;
     width: 100%;
     border: 1px solid #cbcbcb;
-    overflow: hidden;
     background: rgba(255, 255, 255, 1);
     position: absolute;
     top: 0;
     left: 100%;
-}
-
-.inner-nav li:hover .inner-nav {
-    display: block;
+    -webkit-box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, .3);
+    -moz-box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, .3);
+    box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, .3);
 }
 
 .inner-nav li a + .inner-nav li a {
     padding: 7px 5% 8px 5%;
+}
+
+.inner-nav li:hover .inner-nav {
+    display: block;
 }
 
 .inner-nav li a + .inner-nav li a:after {
@@ -1933,9 +1930,8 @@ section.promo-sect {
     display: none;
 }
 
-.promo-right-block {
+.resizble-block {
     width: 73%;
-    padding: 0 0 0 2%;
     position: relative;
 
     -webkit-transition-property: width;
@@ -1959,8 +1955,20 @@ section.promo-sect {
     transition-timing-function: ease;
 }
 
-.promo-right-block.full_width {
+.resizble-block.full_width {
     width: 100%;
+    padding: 0;
+}
+
+.no-resize,
+.no-resize.full_width {
+    width: 100%;
+    padding: 0;
+}
+
+.no-resize .catalog-sort-block,
+.resizble-block.full_width .catalog-sort-block {
+    padding: 0;
 }
 
 .promo-image-block {
@@ -1987,14 +1995,14 @@ section.promo-sect {
     display: none;
 }
 
-.sidebar.active .sidebar-nav {
-    height: auto;
-    overflow: none;
-}
-
-.sidebar-nav {
+.sidebar .sidebar-nav {
     height: 0;
     overflow: hidden;
+}
+
+.sidebar.active .sidebar-nav {
+    height: auto;
+    overflow: initial;
 }
 
 .sidebar.active .nav-header {
@@ -2056,10 +2064,13 @@ section.promo-sect {
     display: inline-block;
     vertical-align: middle;
     padding: 0 5px;
-    background: rgba(255, 255, 255, 1);
     padding: 0;
     z-index: 2;
     position: relative;
+}
+
+.h-group-shape {
+    background: rgba(255, 255, 255, 1);
 }
 
 .h-group h2 {
@@ -2841,7 +2852,23 @@ a.to-diff:hover .lib-small:after {
 /*-- Section 1 Categories Page --*/
 
 .catalog-sort-block {
+    padding: 0 0 0 2%;
 
+    -moz-transition-property: padding;
+    -moz-transition-duration: .3s;
+    -moz-transition-timing-function: ease;
+
+    -ms-transition-property: padding;
+    -ms-transition-duration: .3s;
+    -ms-transition-timing-function: ease;
+
+    -o-transition-property: padding;
+    -o-transition-duration: .3s;
+    -o-transition-timing-function: ease;
+
+    transition-property: padding;
+    transition-duration: .3s;
+    transition-timing-function: ease;
 }
 
 .catalog-sort-header {

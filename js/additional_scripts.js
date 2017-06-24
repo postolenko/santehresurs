@@ -26,7 +26,7 @@ $(document).ready(function() {
 
         if( hoverItemHeight <= 0 ) {
 
-        	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").animate({"height" : listHeight + "px"}, 800);
+        	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").animate({"height" : listHeight + "px"}, 400);
 
         	heightInterval = setInterval(function() {
 
@@ -34,10 +34,10 @@ $(document).ready(function() {
 
         			clearInterval(heightInterval);
 
-        			// $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").addClass("hover_class");
-
-        			$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").css({"overflow" : "initial"});
-
+        			$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").css({
+                                                                                    "overflow" : "initial",
+                                                                                    "height": "auto"
+                                                                                  });
         		}
 
         	}, 70);
@@ -53,17 +53,29 @@ $(document).ready(function() {
 
         // hoverItemHeight = $(this).children(".inner-nav-wrapp").height();
 
-		hoverItemIndex = $(this).index();
-		listHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp .inner-nav").height();
-		hoverItemHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height();
+    		hoverItemIndex = $(this).index();
+    		listHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp .inner-nav").height();
+    		hoverItemHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height();
 
         if( hoverItemHeight >= listHeight  ) {
 
-        	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").css({"overflow" : "hidden"});     	
+        	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").css({"overflow" : "hidden"});
+          
 
-        	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").animate({"height" : 0 + "px"}, 800);
+        	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").animate({"height" : 0 + "px"}, 400);
 
-        	// $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").removeClass("hover_class");        	
+        	heightInterval = setInterval(function() {
+
+            if( $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height() <= 0 ) {
+
+              clearInterval(heightInterval);
+              $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").css({
+                                                                                    "overflow": "hidden",
+                                                                                    "height": 0 + "px"
+                                                                                  });
+            }
+
+          }, 70);  	
 
         }
 
@@ -173,94 +185,98 @@ $(document).ready(function() {
 
     //  Price Slider
 
-    var priceSlider = document.getElementById("price_slider");
-    var values;
+    if( document.getElementById("price_slider") ) {
 
-    noUiSlider.create(priceSlider, {
-        start: [ 1000, 3500 ],
-        range: {
-            'min': [  0 ],
-            'max': [ 12000 ]
-        }
-    });
+      var priceSlider = document.getElementById("price_slider");
+      var values;
 
-    var setButtonMinus = document.getElementById("setMinus");
-    var setButtonPlus = document.getElementById("setPlus");
+      noUiSlider.create(priceSlider, {
+          start: [ 1000, 3500 ],
+          range: {
+              'min': [  0 ],
+              'max': [ 12000 ]
+          }
+      });
 
-    var inputNumberMin = document.getElementById("input-number_1");
-    var inputNumberMax = document.getElementById("input-number_2");
+      var setButtonMinus = document.getElementById("setMinus");
+      var setButtonPlus = document.getElementById("setPlus");
 
-    var setStep = 200;
+      var inputNumberMin = document.getElementById("input-number_1");
+      var inputNumberMax = document.getElementById("input-number_2");
 
-    var leftRange;
-    var rightRange;
+      var setStep = 200;
 
-    var activeInputVal;
+      var leftRange;
+      var rightRange;
 
-    priceSlider.noUiSlider.on('update', function( values, handle ) {
+      var activeInputVal;
 
-        $("#input-number_1").attr("value",  parseInt( values[0] ) );
+      priceSlider.noUiSlider.on('update', function( values, handle ) {
 
-        $("#input-number_2").attr("value",  parseInt( values[1] ) );
+          $("#input-number_1").attr("value",  parseInt( values[0] ) );
 
-        leftRange = parseInt( values[0] );
-        rightRange = parseInt( values[1] );
+          $("#input-number_2").attr("value",  parseInt( values[1] ) );
 
-    });
+          leftRange = parseInt( values[0] );
+          rightRange = parseInt( values[1] );
 
-    setButtonMinus.addEventListener('click', function(){
+      });
 
-        leftRange = leftRange  - setStep;
+      setButtonMinus.addEventListener('click', function(){
 
-        priceSlider.noUiSlider.set([leftRange, null]);
+          leftRange = leftRange  - setStep;
 
-    });
+          priceSlider.noUiSlider.set([leftRange, null]);
 
-    setButtonPlus.addEventListener('click', function(){
+      });
 
-        rightRange = rightRange + setStep;
+      setButtonPlus.addEventListener('click', function(){
 
-        priceSlider.noUiSlider.set([null, rightRange]);
+          rightRange = rightRange + setStep;
 
-    });
+          priceSlider.noUiSlider.set([null, rightRange]);
 
-    $("#input-number_1").keyup(function() {
+      });
 
-        activeInputVal = parseInt( $(this).val() );
+      $("#input-number_1").keyup(function() {
 
-        if( activeInputVal < parseInt( $("#input-number_2").val() ) ) {
+          activeInputVal = parseInt( $(this).val() );
 
-            leftRange = parseInt( $(this).val() );
+          if( activeInputVal < parseInt( $("#input-number_2").val() ) ) {
 
-            priceSlider.noUiSlider.set([leftRange, null]);
+              leftRange = parseInt( $(this).val() );
 
-        }
-        // else {
+              priceSlider.noUiSlider.set([leftRange, null]);
 
-        //     $(this).attr("value", activeInputVal );
+          }
+          // else {
 
-        // }
+          //     $(this).attr("value", activeInputVal );
 
-    });
+          // }
 
-    $("#input-number_2").keyup(function() {
+      });
 
-        activeInputVal = parseInt( $(this).val() );
+      $("#input-number_2").keyup(function() {
 
-        if( activeInputVal > parseInt( $("#input-number_1").val() ) ) {
+          activeInputVal = parseInt( $(this).val() );
 
-            rightRange = parseInt( $(this).val() );
+          if( activeInputVal > parseInt( $("#input-number_1").val() ) ) {
 
-            priceSlider.noUiSlider.set([null, rightRange]);
+              rightRange = parseInt( $(this).val() );
 
-        }
-        // else {
+              priceSlider.noUiSlider.set([null, rightRange]);
 
-        //     $(this).attr("value", activeInputVal );
+          }
+          // else {
 
-        // }
+          //     $(this).attr("value", activeInputVal );
 
-    });
+          // }
+
+      });
+
+    }
 
     // ------------------------------------------------
 

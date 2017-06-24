@@ -73,9 +73,11 @@ $(document).ready(function() {
                             "overflow" : "initial"
                         });
 
+                        // $(".sidebar-nav").attr("style", "height: auto; overflow: initial");
+
                         $(".sidebar").addClass("active");
 
-                         if($("#block_right").length > 0) {
+                         if($("#block_right").length > 0 && !$(".resizble-block.no-resize").length ) {
 
                             $("#block_right").removeClass("full_width");
 
@@ -91,6 +93,8 @@ $(document).ready(function() {
                     "height" : "auto",
                     "overflow" : "hidden"
                 });
+
+                // $(".sidebar-nav").attr("style", "height: auto; overflow: hidden");
 
                 $(".sidebar-nav").animate({
                     "height" : 0 + "px"
@@ -108,7 +112,7 @@ $(document).ready(function() {
 
                 }, 70);
 
-                if($("#block_right").length > 0) {
+                if($("#block_right").length > 0 && !$(".resizble-block.no-resize").length ) {
 
                     $("#block_right").addClass("full_width");
 
