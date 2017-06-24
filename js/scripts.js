@@ -73,11 +73,9 @@ $(document).ready(function() {
                             "overflow" : "initial"
                         });
 
-                        // $(".sidebar-nav").attr("style", "height: auto; overflow: initial");
-
                         $(".sidebar").addClass("active");
 
-                         if($("#block_right").length > 0 && !$(".resizble-block.no-resize").length ) {
+                         if($("#block_right").length > 0 ) {
 
                             $("#block_right").removeClass("full_width");
 
@@ -93,8 +91,6 @@ $(document).ready(function() {
                     "height" : "auto",
                     "overflow" : "hidden"
                 });
-
-                // $(".sidebar-nav").attr("style", "height: auto; overflow: hidden");
 
                 $(".sidebar-nav").animate({
                     "height" : 0 + "px"
@@ -112,7 +108,7 @@ $(document).ready(function() {
 
                 }, 70);
 
-                if($("#block_right").length > 0 && !$(".resizble-block.no-resize").length ) {
+                if($("#block_right").length > 0 ) {
 
                     $("#block_right").addClass("full_width");
 
@@ -124,6 +120,102 @@ $(document).ready(function() {
         });
 
     });
+
+    // ----------------------------------------
+
+    // Калькулятор на странице Корзины товара
+
+     $(function() {
+        
+        var parentEl;
+        var indexCard;
+        var countElementsInputIndex;
+        var countElementsVal;
+        var priceGood;
+        var priceMultiple;
+        var priceMultipleVal = 0;
+
+        $(".good-card .choise-count button").click(function(countGoodsEvent) {
+
+            parentEl = $(this).parent();
+
+            for(;;) {
+
+                parentEl = parentEl.parent();
+
+                if(parentEl.hasClass("good-card")) {             
+
+                    indexCard = parentEl.index(".good-card");
+
+                    break;
+
+                }
+
+            }
+
+            countElementsInputIndex = $(this).parent(".choise-count").index(".choise-count");
+
+            countElementsVal = $(".choise-count:eq("+ countElementsInputIndex +") .count-num-val").val();
+
+            if( countElementsVal <=  -1 ) {
+
+                $(".choise-count:eq("+ countElementsInputIndex +") .count-num-val").val(0);
+
+            }
+
+            if( $(this).hasClass("minus") && countElementsVal > 0 ) {
+
+                countElementsVal--;
+
+            } else if( $(this).hasClass("plus") ) {
+
+                countElementsVal++;
+
+            }
+
+            $(".choise-count:eq("+ countElementsInputIndex +") .count-num-val").val(countElementsVal);
+
+            priceGood = parseInt( $(".good-card:eq("+ indexCard + ") .price_total_sum_input").val() );
+            priceMultiple = priceGood * countElementsVal;
+            $(".good-card:eq("+ indexCard + ") .price_total_sum").text(priceMultiple);
+
+        });
+
+        $(".good-card .choise-count .count-num-val").keyup(function() {
+
+            parentEl = $(this).parent();
+
+            for(;;) {
+
+                parentEl = parentEl.parent();
+
+                if(parentEl.hasClass("good-card")) {             
+
+                    indexCard = parentEl.index(".good-card");
+
+                    break;
+
+                }
+
+            }
+
+            countElementsVal = $(".good-card:eq("+ indexCard +") .choise-count .count-num-val").val();
+
+            if( countElementsVal <=  -1 ) {
+
+                $(".good-card:eq("+ indexCard +") .choise-count .count-num-val").val(0);
+
+            }
+
+            $(".good-card:eq("+ indexCard +") .choise-count .count-num-val").val(countElementsVal);
+
+            priceGood = parseInt( $(".good-card:eq("+ indexCard + ") .price_total_sum_input").val() );
+            priceMultiple = priceGood * countElementsVal;
+            $(".good-card:eq("+ indexCard + ") .price_total_sum").text(priceMultiple);
+
+        });
+
+     });
 
 
     // ----------------------------

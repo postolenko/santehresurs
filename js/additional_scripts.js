@@ -312,4 +312,48 @@ $(document).ready(function() {
       ]
     });
 
+    // ------------------------------------------------
+
+    $(".card-big-slider").not(".slick-initialized").slick({
+      dots: false,
+      arrows: false,
+      speed: 700,
+      fade: true,
+      autoplay: true,
+      autoplaySpeed: 17000,
+      asNavFor: ".card-miniatures-slider"
+    });
+
+    $(".card-miniatures-slider").not(".slick-initialized").slick({
+      dots: false,
+      arrows: false,
+      speed: 700,
+      slidesToShow: 6,
+      slideToScroll: 2,
+      focusOnSelect: true,
+      autoplay: true,
+      autoplaySpeed: 17000,
+      asNavFor: ".card-big-slider",
+      responsive: [
+        {
+          breakpoint: 923,
+          settings: {
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 689,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 490,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+
 });
