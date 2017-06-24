@@ -7,13 +7,24 @@ $(document).ready(function() {
 
     // ----------------------------
 
+    var parentSelectWidht;
+    var selectWidht;
+
+    // ----------------------------
+
     getFooterPosition();
+
+    getSelectSize();
 
     $(window).resize(function() {
 
         $(".wrapper").css({"min-height" : $(window).height() + "px"});
 
         $(".wrapper").css({"padding-bottom" :  $(".footer").outerHeight(true) + "px"});
+
+        // --------------------
+
+        getSelectSize();
 
     });
 
@@ -46,9 +57,7 @@ $(document).ready(function() {
             sidebarAutoHeight = $(".sidebar-nav-list").height();    
 
             if( $(".sidebar-nav").height() <= 0 ) {
-
-                $(this).addClass("active");
-
+                
                 $(".sidebar-nav").animate({
                     "height" : sidebarAutoHeight + "px"
                 }, 400);
@@ -59,28 +68,24 @@ $(document).ready(function() {
 
                         clearInterval(siddebarHeightInterval);
 
-                        // $(".sidebar-nav").removeClass("hover_class");
-
                         $(".sidebar-nav").css({
                             "height" : "auto",
                             "overflow" : "initial"
                         });
 
-                         if($(".promo-image-block").length > 0) {
+                        $(".sidebar").addClass("active");
 
-                            $(".promo-image-block").removeClass("full_width");
+                         if($("#block_right").length > 0) {
+
+                            $("#block_right").removeClass("full_width");
 
                         }
 
                     }
 
-                }, 70);
-
-                
+                }, 70);                
                  
-            } else {               
-
-                $(this).removeClass("active");
+            } else {
 
                 $(".sidebar-nav").css({
                     "height" : "auto",
@@ -91,9 +96,21 @@ $(document).ready(function() {
                     "height" : 0 + "px"
                 }, 400);
 
-                if($(".promo-image-block").length > 0) {
+                siddebarHeightInterval = setInterval(function() {
 
-                    $(".promo-image-block").addClass("full_width");
+                    if( $(".sidebar-nav").height() <= 0 ) {
+
+                        clearInterval(siddebarHeightInterval);
+
+                        $(".sidebar").removeClass("active");
+
+                    }
+
+                }, 70);
+
+                if($("#block_right").length > 0) {
+
+                    $("#block_right").addClass("full_width");
 
                 }
 
@@ -144,6 +161,22 @@ $(document).ready(function() {
             }
 
         }, 35);
+
+    }
+
+    function getSelectSize() {
+
+        parentSelectWidht =  $(".catalog-sort-row").width();
+
+        selectWidht = parentSelectWidht * .29;
+
+        if( selectWidht > 250 ) {
+
+            selectWidht = 250
+
+        }
+
+        $(".catalog-sort-row .select-box select").width(selectWidht);
 
     }
 

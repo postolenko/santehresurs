@@ -15,11 +15,13 @@
 	<link rel="stylesheet" type="text/css" href="slick/slick.css">
 	<link rel="stylesheet" type="text/css" href="vendors/css/jquery.mCustomScrollbar.css">
 	<link rel="stylesheet" type="text/css" href="vendors/css/select2.css">
+	<link rel="stylesheet" type="text/css" href="vendors/css/nouislider.css">
 	<script type="text/javascript" src="vendors/js/jquery.js"></script>
 	<script type="text/javascript" src="slick/slick.js"></script>
 	<script type="text/javascript" src="vendors/js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script type="text/javascript" src="vendors/js/smoothscroll.js"></script>
-	<!-- <script type="text/javascript" src="vendors/js/select2.js"></script> -->
+	<script type="text/javascript" src="vendors/js/select2.js"></script>
+	<script type="text/javascript" src="vendors/js/nouislider.js"></script>
 	<script type="text/javascript" src="vendors/js/parallax.js"></script>
 	<script type="text/javascript" src="vendors/js/jquery.hoverIntent.js"></script>
 	<!-- <script type="text/javascript" src="vendors/js/jquery.maskedinput.min.js"></script> -->
@@ -39,7 +41,7 @@
 
 	<header>
 
-		<div class="header-site">			
+		<div class="header-site">
 			
 			<div class="header-site-1 wow fadeInDown">
 				<div class="row offset-ziro">
@@ -169,10 +171,12 @@
 
 	<!-- /Fixed Block -->
 
-	<!-- Section 1 Main Page -->
+	<!-- Section 1 Categories Page -->
 
 		<section class="promo-sect">
+
 			<div class="row">
+
 				<div class="promo-block clearfix">
 					<div class="sidebar active left">
 						<div class="nav-header" id="sidebar">
@@ -297,130 +301,508 @@
 						</div>
 					</div>
 
-					<div class="promo-right-block right" id="block_right">
-						<div class="promo-image-block">
-							<img class="desktop-img" src="img/promo_01.jpg" alt="" />
-							<img class="resp-img" src="img/promo_01.jpg" alt="" />
-						</div>						
+					<!-- Breadcrumbs  -->
+
+					<div class="breadcrumbs-block right">
+						<ul class="breacrumbs">
+							<li><a href="#">Главная</a></li>
+							<li><a href="#">Фаянас</a></li>
+							<li><a href="#">Раковины</a></li>
+						</ul>
 					</div>
+
+					<!-- /Breadcrumbs  -->
+
+					<div class="promo-right-block right wow fadeIn" id="block_right">
+
+						<div class="catalog-sort-block">
+							<div class="catalog-sort-header offset-ziro">
+								<ul class="catalog-sort-list">
+									<li><a href="#">Ванны</a></li>
+									<li><a href="#" class="active">Раковины</a></li>
+									<li><a href="#">Унитазы</a></li>
+									<li><a href="#">Биде</a></li>
+								</ul>
+
+								<div class="catalog-views-btns align-right">
+
+									<button type="button" class="catalog-th-btn">
+										<i class="catalogsort-th"></i>
+									</button>
+
+									<button type="button" class="catalog-th-btn">
+										<i class="catalogsort-list"></i>
+									</button>
+
+									<button type="button" class="catalog-th-btn">
+										<i class="catalogsort-line"></i>
+									</button>
+
+								</div>
+								
+							</div>
+
+							<div class="catalog-sort-row">
+
+								<div class="inner offset-ziro">
+
+									<div>
+										
+										<div class="select-box">
+											<nobr>
+												<label>Сортировать по алфавиту: от А до Я:</label>
+												<select>
+													<option>A</option>
+													<option>B</option>
+													<option>C</option>
+													<option>D</option>
+													<option>F</option>
+													<option>G</option>
+													<option>H</option>
+													<option>I</option>
+												</select>										
+											</nobr>
+										</div>
+
+										<div class="select-box">
+											<nobr>
+												<label>Брэнды:</label>
+												<select>
+													<option>Thermex (21)</option>
+													<option>Brand_2</option>
+													<option>Brand_3</option>
+													<option>Brand_4</option>
+													<option>Brand_5</option>
+												</select>										
+											</nobr>
+										</div>
+
+									</div>
+
+									<div>
+
+										<div class="range-slider-block select-box">
+
+											<p class="cell cell-1">Цена:</p>
+
+											<div class="cell cell-2">
+
+												<div class="range-slider-header">			
+
+													<div class="input-range-box">
+														<nobr>
+															<label>от</label>
+															<input type="number" class="price-sl-input" id="input-number_1">
+														</nobr>
+													</div>
+
+													<div class="input-range-box">
+														<nobr>
+															<label>до</label>
+															<input type="number" class="price-sl-input" id="input-number_2">
+															<p><i class="fa fa-rub" aria-hidden="true"></i></p>
+														</nobr>
+													</div>
+
+												</div>
+
+												<div class="range-slider-btns clearfix">
+
+													<button type="button" class="slider-price-btn slider-price-btn-minus left" id="setMinus">
+														
+													</button>
+
+													<button type="button" class="slider-price-btn slider-price-btn-plus right" id="setPlus">
+														
+													</button>
+
+												</div>
+
+												<div id="price_slider"></div>
+
+											</div>
+
+										</div>
+
+										<div class="select-box">
+
+											<nobr>
+												<label>Цвет:</label>
+												<select>
+													<option>Белый</option>
+													<option>Серый</option>
+													<option>Бежевый</option>
+													<option>Голубой</option>
+													<option>Черный</option>
+												</select>											
+											</nobr>
+
+										</div>
+
+									</div>
+
+								</div>
+								
+							</div>
+
+							<div class="catalog-sort-row">
+
+								<div class="inner offset-ziro">
+
+									<div class="catalog-links-block">
+										<ul class="catalog-links">
+											<li><a href="#">Раковины подвесные</a></li>
+											<li><a href="#">Раковины подвесные</a></li>
+											<li><a href="#">Раковины встраиваемые</a></li>
+											<li><a href="#">Раковины встраиваемые</a></li>
+											<li><a href="#">Раковины накладные</a></li>
+										</ul>
+									</div>
+
+									<div class="catalog-links-block">
+										<ul class="catalog-links">
+											<li><a href="#">Раковины накладные</a></li>
+											<li><a href="#">Раковины угловые</a></li>
+											<li><a href="#">Раковины угловые</a></li>
+											<li><a href="#">Раковины на собственной опоре</a></li>
+											<li><a href="#">Раковины на собственной опоре</a></li>
+										</ul>
+									</div>
+
+									<div class="catalog-links-block">
+										<ul class="catalog-links">
+											<li><a href="#">Пьедесталы для раковин</a></li>
+											<li><a href="#">Пьедесталы для раковин</a></li>
+											<li><a href="#">Полупьедесталы для раковин</a></li>
+											<li><a href="#">Полупьедесталы для раковин</a></li>
+										</ul>
+									</div>
+
+								</div>
+								
+							</div>
+
+						</div>
+
+					</div>
+
 				</div>
+
+				<div class="catalog-goods">
+
+					<div class="h-group h-group-shape">
+
+						<h2 class="txt-upper">Раковины Встраиваемые</h2>
+
+						<div class="arrows catalog-arrows">
+							<button type="button" class="catalog-arrow prev-goods">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240.8 240.8" width="27" height="27"><path d="M57.6 129L165.9 237.3c4.8 4.7 12.5 4.7 17.2 0 4.8-4.7 4.8-12.4 0-17.2l-99.7-99.7 99.7-99.7c4.8-4.7 4.8-12.4 0-17.2 -4.8-4.7-12.5-4.7-17.2 0L57.6 111.8C52.9 116.5 52.9 124.3 57.6 129z" fill="#424851"/></svg>
+							</button>
+							<button type="button" class="catalog-arrow next-goods">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240.8 240.8" width="27" height="27"><path d="M183.2 111.8L74.9 3.6c-4.8-4.7-12.5-4.7-17.2 0 -4.8 4.7-4.8 12.4 0 17.2l99.7 99.7 -99.7 99.7c-4.8 4.7-4.8 12.4 0 17.2 4.8 4.7 12.5 4.7 17.2 0l108.3-108.3C187.9 124.3 187.9 116.5 183.2 111.8z" fill="#424852"/></svg>
+							</button>
+						</div>
+
+					</div>
+
+					<div class="catalog-thubnails offset-ziro wow fadeIn">
+						
+						<div class="good-thumb">
+							<div class="inner">
+								<div class="img-box">
+									<img src="img/goods/good_01.jpg" alt="" />
+								</div>
+								<div class="thumb-content">
+									<div class="descript">
+										<p class="p-1">Стулья на металлическом каркасе</p>
+										<p class="p-2">Гранж</p>
+										<p class="price">11 795 руб.</p>
+									</div>
+									<div class="align-center">
+										<a href="#" class="geen-pill">в корзину</a>
+									</div>
+									<div class="align-center">
+										<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="good-thumb">
+							<div class="inner">
+								<div class="img-box">
+									<img src="img/goods/good_02.jpg" alt="" />
+								</div>
+								<div class="thumb-content">
+									<div class="descript">
+										<p class="p-1">Темный металлический каркас</p>
+										<p class="p-2">Гранж</p>
+										<p class="price">18 199 руб.</p>
+									</div>
+									<div class="align-center">
+										<a href="#" class="geen-pill">в корзину</a>
+									</div>
+									<div class="align-center">
+										<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="good-thumb">
+							<div class="inner">
+								<div class="img-box">
+									<img src="img/goods/good_03.jpg" alt="" />
+								</div>
+								<div class="thumb-content">
+									<div class="description">
+										<p class="p-1">Стулья на металлическом каркасе</p>
+										<p class="p-2">Беллеза</p>
+										<p class="price">14 550 руб.</p>
+									</div>
+									<div class="align-center">
+										<a href="#" class="geen-pill">в корзину</a>
+									</div>
+									<div class="align-center">
+										<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="good-thumb">
+							<div class="inner">
+								<div class="img-box">
+									<img src="img/goods/good_04.jpg" alt="" />
+								</div>
+								<div class="thumb-content">
+									<div class="descript">
+										<p class="p-1">Стулья на металлическом каркасе</p>
+										<p class="p-2"></p>
+										<p class="price">11 795 руб.</p>
+									</div>
+									<div class="align-center">
+										<a href="#" class="geen-pill">в корзину</a>
+									</div>
+									<div class="align-center">
+										<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="good-thumb">
+							<div class="inner">
+								<div class="img-box">
+									<img src="img/goods/good_01.jpg" alt="" />
+								</div>
+								<div class="thumb-content">
+									<div class="descript">
+										<p class="p-1">Стулья на металлическом каркасе</p>
+										<p class="p-2">Гранж</p>
+										<p class="price">11 795 руб.</p>
+									</div>
+									<div class="align-center">
+										<a href="#" class="geen-pill">в корзину</a>
+									</div>
+									<div class="align-center">
+										<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="good-thumb">
+							<div class="inner">
+								<div class="img-box">
+									<img src="img/goods/good_02.jpg" alt="" />
+								</div>
+								<div class="thumb-content">
+									<div class="descript">
+										<p class="p-1">Темный металлический каркас</p>
+										<p class="p-2">Гранж</p>
+										<p class="price">18 199 руб.</p>
+									</div>
+									<div class="align-center">
+										<a href="#" class="geen-pill">в корзину</a>
+									</div>
+									<div class="align-center">
+										<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="good-thumb">
+							<div class="inner">
+								<div class="img-box">
+									<img src="img/goods/good_03.jpg" alt="" />
+								</div>
+								<div class="thumb-content">
+									<div class="description">
+										<p class="p-1">Стулья на металлическом каркасе</p>
+										<p class="p-2">Беллеза</p>
+										<p class="price">14 550 руб.</p>
+									</div>
+									<div class="align-center">
+										<a href="#" class="geen-pill">в корзину</a>
+									</div>
+									<div class="align-center">
+										<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="good-thumb">
+							<div class="inner">
+								<div class="img-box">
+									<img src="img/goods/good_04.jpg" alt="" />
+								</div>
+								<div class="thumb-content">
+									<div class="descript">
+										<p class="p-1">Стулья на металлическом каркасе</p>
+										<p class="p-2"></p>
+										<p class="price">11 795 руб.</p>
+									</div>
+									<div class="align-center">
+										<a href="#" class="geen-pill">в корзину</a>
+									</div>
+									<div class="align-center">
+										<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="good-thumb">
+							<div class="inner">
+								<div class="img-box">
+									<img src="img/goods/good_01.jpg" alt="" />
+								</div>
+								<div class="thumb-content">
+									<div class="descript">
+										<p class="p-1">Стулья на металлическом каркасе</p>
+										<p class="p-2">Гранж</p>
+										<p class="price">11 795 руб.</p>
+									</div>
+									<div class="align-center">
+										<a href="#" class="geen-pill">в корзину</a>
+									</div>
+									<div class="align-center">
+										<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="good-thumb">
+							<div class="inner">
+								<div class="img-box">
+									<img src="img/goods/good_02.jpg" alt="" />
+								</div>
+								<div class="thumb-content">
+									<div class="descript">
+										<p class="p-1">Темный металлический каркас</p>
+										<p class="p-2">Гранж</p>
+										<p class="price">18 199 руб.</p>
+									</div>
+									<div class="align-center">
+										<a href="#" class="geen-pill">в корзину</a>
+									</div>
+									<div class="align-center">
+										<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="good-thumb">
+							<div class="inner">
+								<div class="img-box">
+									<img src="img/goods/good_03.jpg" alt="" />
+								</div>
+								<div class="thumb-content">
+									<div class="description">
+										<p class="p-1">Стулья на металлическом каркасе</p>
+										<p class="p-2">Беллеза</p>
+										<p class="price">14 550 руб.</p>
+									</div>
+									<div class="align-center">
+										<a href="#" class="geen-pill">в корзину</a>
+									</div>
+									<div class="align-center">
+										<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="good-thumb">
+							<div class="inner">
+								<div class="img-box">
+									<img src="img/goods/good_04.jpg" alt="" />
+								</div>
+								<div class="thumb-content">
+									<div class="descript">
+										<p class="p-1">Стулья на металлическом каркасе</p>
+										<p class="p-2"></p>
+										<p class="price">11 795 руб.</p>
+									</div>
+									<div class="align-center">
+										<a href="#" class="geen-pill">в корзину</a>
+									</div>
+									<div class="align-center">
+										<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="catalog-pagination-block align-right">
+
+						<ul class="catalog-pagination">
+							<li><a href="#" class="catalog-pagination-arrow prev-arrow">
+								<i class="fa fa-angle-left" aria-hidden="true"></i>
+							</a></li>
+							<li><a href="#" class="active">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#" class="catalog-pagination-arrow next-arrow">
+								<i class="fa fa-angle-right" aria-hidden="true"></i>
+							</a></li>
+						</ul>
+
+					</div>
+
+				</div>
+
 			</div>
+
 		</section>
 
-	<!-- /Section 1 Main Page -->
+	<!-- /Section 1 Categories Page -->
 
-	<!-- Section 2 Main Page -->
+	<!-- Section 2 Categories Page  -->
 
-		<section class="brands-sect">
+		<section class="promo-sect">
 
 			<div class="row">
 
-				<div class="h-group">
+				<div class="h-group h-group-shape">
 
-					<h2 class="txt-upper">Брэнды</h2>
+					<h2 class="txt-upper">Недавно смотрели</h2>
 
-					<div class="arrows arrows-right bradslider-arrows-append"></div>
-
-				</div>
-
-				<div class="brands-slider-box wow fadeInUp">
-					<div class="brand-slider">
-						<a href="#" class="slide brand-thumb">
-							<div class="img-box">
-								<img src="img/brands/image_01.jpg" alt="" />
-							</div>
-						</a>
-						<a href="#" class="slide brand-thumb">
-							<div class="img-box">
-								<img src="img/brands/image_02.jpg" alt="" />
-							</div>
-						</a>
-						<a href="#" class="slide brand-thumb">
-							<div class="img-box">
-								<img src="img/brands/image_03.jpg" alt="" />
-							</div>
-						</a>
-						<a href="#" class="slide brand-thumb">
-							<div class="img-box">
-								<img src="img/brands/image_04.jpg" alt="" />
-							</div>
-						</a>
-						<a href="#" class="slide brand-thumb">
-							<div class="img-box">
-								<img src="img/brands/image_05.jpg" alt="" />
-							</div>
-						</a>
-						<a href="#" class="slide brand-thumb">
-							<div class="img-box">
-								<img src="img/brands/image_06.jpg" alt="" />
-							</div>
-						</a>
-						<a href="#" class="slide brand-thumb">
-							<div class="img-box">
-								<img src="img/brands/image_07.jpg" alt="" />
-							</div>
-						</a>
-						<a href="#" class="slide brand-thumb">
-							<div class="img-box">
-								<img src="img/brands/image_01.jpg" alt="" />
-							</div>
-						</a>
-						<a href="#" class="slide brand-thumb">
-							<div class="img-box">
-								<img src="img/brands/image_02.jpg" alt="" />
-							</div>
-						</a>
-						<a href="#" class="slide brand-thumb">
-							<div class="img-box">
-								<img src="img/brands/image_03.jpg" alt="" />
-							</div>
-						</a>
-						<a href="#" class="slide brand-thumb">
-							<div class="img-box">
-								<img src="img/brands/image_04.jpg" alt="" />
-							</div>
-						</a>
-						<a href="#" class="slide brand-thumb">
-							<div class="img-box">
-								<img src="img/brands/image_05.jpg" alt="" />
-							</div>
-						</a>
-						<a href="#" class="slide brand-thumb">
-							<div class="img-box">
-								<img src="img/brands/image_06.jpg" alt="" />
-							</div>
-						</a>
-						<a href="#" class="slide brand-thumb">
-							<div class="img-box">
-								<img src="img/brands/image_07.jpg" alt="" />
-							</div>
-						</a>
-					</div>
-				</div>
-
-			</div>
-
-		</section>
-
-	<!-- /Section 2 Main Page -->
-
-	<!-- Section 3 Main Page -->
-
-		<section class="googds-sect">
-
-			<div class="row">
-
-				<div class="h-group">
-
-					<h2 class="txt-upper">Популярные товары</h2>
-
-					<div class="arrows goods-append-arrows"></div>
+					<div class="arrows last-saw-append-arrows"></div>
 
 				</div>
 
-				<div class="popular-goods-slider-boxs wow fadeInUp">
+				<div class="last-saw-slider-box wow fadeIn">
 
-					<div class="popular-goods-slider">
+					<div class="last-saw-slider">
 
 						<div class="slide">
 							<div class="good-thumb">
@@ -545,172 +927,7 @@
 
 		</section>
 
-	<!-- /Section 3 Main Page -->
-
-	<!-- Section 4 Main Page -->
-
-		<section class="discount-sect top-shape">
-
-			<div class="row">
-
-				<div class="h-group">
-
-					<h2 class="txt-upper">Товары со скидкой</h2>
-
-					<div class="arrows discount-goods-slider-arrows"></div>
-
-				</div>
-
-				<div class="discount-goods-slider-box wow fadeInUp">
-
-					<div class="discount-goods-slider">
-
-						<div class="slide">
-							<div class="good-thumb">
-								<div class="inner">
-									<p class="discount">30%</p>
-									<div class="img-box">
-										<img src="img/goods/good_01.jpg" alt="" />
-									</div>
-									<div class="thumb-content">
-										<div class="descript">
-											<p class="p-1">Стулья на металлическом каркасе</p>
-											<p class="p-2">Гранж</p>
-											<p class="price">11 795 руб.</p>
-										</div>
-										<div class="align-center">
-											<a href="#" class="geen-pill">в корзину</a>
-										</div>
-										<div class="align-center">
-											<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="slide">
-							<div class="good-thumb">
-								<div class="inner">
-									<p class="discount">30%</p>
-									<div class="img-box">
-										<img src="img/goods/good_02.jpg" alt="" />
-									</div>
-									<div class="thumb-content">
-										<div class="descript">
-											<p class="p-1">Темный металлический каркас</p>
-											<p class="p-2">Гранж</p>
-											<p class="price">18 199 руб.</p>
-										</div>
-										<div class="align-center">
-											<a href="#" class="geen-pill">в корзину</a>
-										</div>
-										<div class="align-center">
-											<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="slide">
-							<div class="good-thumb">
-								<div class="inner">
-									<p class="discount">30%</p>
-									<div class="img-box">
-										<img src="img/goods/good_03.jpg" alt="" />
-									</div>
-									<div class="thumb-content">
-										<div class="description">
-											<p class="p-1">Стулья на металлическом каркасе</p>
-											<p class="p-2">Беллеза</p>
-											<p class="price">14 550 руб.</p>
-										</div>
-										<div class="align-center">
-											<a href="#" class="geen-pill">в корзину</a>
-										</div>
-										<div class="align-center">
-											<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="slide">
-							<div class="good-thumb">
-								<div class="inner">
-									<p class="discount">30%</p>
-									<div class="img-box">
-										<img src="img/goods/good_04.jpg" alt="" />
-									</div>
-									<div class="thumb-content">
-										<div class="descript">
-											<p class="p-1">Стулья на металлическом каркасе</p>
-											<p class="p-2"></p>
-											<p class="price">11 795 руб.</p>
-										</div>
-										<div class="align-center">
-											<a href="#" class="geen-pill">в корзину</a>
-										</div>
-										<div class="align-center">
-											<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="slide">
-							<div class="good-thumb">
-								<div class="inner">
-									<p class="discount">30%</p>
-									<div class="img-box">
-										<img src="img/goods/good_01.jpg" alt="" />
-									</div>
-									<div class="thumb-content">
-										<div class="descript">
-											<p class="p-1">Стулья на металлическом каркасе</p>
-											<p class="p-2">Гранж</p>
-											<p class="price">11 795 руб.</p>
-										</div>
-										<div class="align-center">
-											<a href="#" class="geen-pill">в корзину</a>
-										</div>
-										<div class="align-center">
-											<a href="#" class="to-diff"><i class="lib-small"></i>Добавить к сравнению</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-
-			</div>
-
-		</section>
-
-	<!-- /Section 4 Main Page -->
-
-	<!-- Section 5 Main Page -->
-
-		<section>
-
-			<div class="row">
-
-				<h2>Причины купить сантехнику в магазине Santehresurs.com</h2>
-
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-
-				<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-
-			</div>
-
-		</section>
-
-	<!-- /Section 5 Main Page -->
+	<!-- /Section 2 Categories Page  -->
 
 	<!-- Section 6 Main Page -->
 
@@ -1005,107 +1222,6 @@
 
 	<script src="js/scripts.js"></script>
 	<script src="js/additional_scripts.js"></script>
-
-	<script type="text/javascript">
-	$(".brand-slider").not(".slick-initialized").slick({
-	  dots: false,
-	  arrows: true,
-	  speed: 700,
-	  slidesToShow: 7,
-	  slideToScroll: 2,
-	  focusOnSelect: true,
-	  autoplay: true,
-	  autoplaySpeed: 17000,
-	  appendArrows: $(".bradslider-arrows-append"),
-	     responsive: [
-	    {
-	      breakpoint: 923,
-	      settings: {
-	        slidesToShow: 3
-	      }
-	    },
-	    {
-	      breakpoint: 689,
-	      settings: {
-	        slidesToShow: 2
-	      }
-	    },
-	    {
-	      breakpoint: 490,
-	      settings: {
-	        slidesToShow: 1
-	      }
-	    }
-	  ]
-	});
-
-
-	$(".popular-goods-slider").not(".slick-initialized").slick({
-	  dots: false,
-	  arrows: true,
-	  speed: 700,
-	  slidesToShow: 4,
-	  slideToScroll: 1,
-	  focusOnSelect: true,
-	  autoplay: true,
-	  autoplaySpeed: 17000,
-	  appendArrows: $(".goods-append-arrows"),
-	     responsive: [
-	    {
-	      breakpoint: 923,
-	      settings: {
-	        slidesToShow: 3
-	      }
-	    },
-	    {
-	      breakpoint: 689,
-	      settings: {
-	        slidesToShow: 2
-	      }
-	    },
-	    {
-	      breakpoint: 490,
-	      settings: {
-	        slidesToShow: 1
-	      }
-	    }
-	  ]
-	});
-
-	$(".discount-goods-slider").not(".slick-initialized").slick({
-	  dots: false,
-	  arrows: true,
-	  speed: 700,
-	  slidesToShow: 4,
-	  slideToScroll: 1,
-	  focusOnSelect: true,
-	  autoplay: true,
-	  autoplaySpeed: 17000,
-	  appendArrows: $(".discount-goods-slider-arrows"),
-	     responsive: [
-	    {
-	      breakpoint: 923,
-	      settings: {
-	        slidesToShow: 3
-	      }
-	    },
-	    {
-	      breakpoint: 689,
-	      settings: {
-	        slidesToShow: 2
-	      }
-	    },
-	    {
-	      breakpoint: 490,
-	      settings: {
-	        slidesToShow: 1
-	      }
-	    }
-	  ]
-	});
-
-
-	</script>
 	
 	</div>
 
