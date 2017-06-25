@@ -1274,3 +1274,24 @@ yx-axis
     right: -10px;
     height: auto;
 }
+
+
+.mCSB_scrollTools .mCSB_draggerRail {
+    width: 3px;
+}
+
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    height: 37px;
+    width: 11px;
+    background-color: transparent !important;
+   	background-image: url(../../img/scrolling_bg_vertical.png);
+}
+
+.mCSB_scrollTools .mCSB_dragger {
+    height: 37px !important;
+}
+
+.mCSB_scrollTools .mCSB_draggerRail {
+	background-color: rgb(219, 219, 219);
+	background: rgba(219, 219, 219, 1);
+}

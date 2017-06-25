@@ -1,10 +1,21 @@
 $(document).ready(function() {
 
-    $(".sidebar-nav-list > li").hoverIntent({
-	      over: makeTallMenuItemSection,
-	      out: makeShortMenuItemSection,
-	      timeout: 1600
-	  });
+  (function($){
+
+    $(window).on("load",function(){
+
+      $(".scroll").mCustomScrollbar();
+
+    });
+
+  })(jQuery);
+
+
+  $(".sidebar-nav-list > li").hoverIntent({
+      over: makeTallMenuItemSection,
+      out: makeShortMenuItemSection,
+      timeout: 4000
+  });
 
 	var hoverItem;
 	var listHeight;
@@ -335,6 +346,40 @@ $(document).ready(function() {
       autoplaySpeed: 17000,
       asNavFor: ".card-big-slider",
       responsive: [
+        {
+          breakpoint: 923,
+          settings: {
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 689,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 490,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+
+     // ------------------------------------------------
+
+    $(".simmilar-goods-slider").not(".slick-initialized").slick({
+      dots: false,
+      arrows: true,
+      speed: 700,
+      slidesToShow: 4,
+      slideToScroll: 1,
+      focusOnSelect: true,
+      autoplay: true,
+      autoplaySpeed: 17000,
+      appendArrows: $(".simmilar-goods-append-arrows"),
+         responsive: [
         {
           breakpoint: 923,
           settings: {

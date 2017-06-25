@@ -220,6 +220,96 @@ $(document).ready(function() {
 
     // ----------------------------
 
+        // ------ Tabs -------
+
+    $(function() {
+
+        for(indexTabs = 0; indexTabs < $(".tabs").length; indexTabs++ ) {
+
+            if( $(".tabs:eq("+ indexTabs +") .tabs-content-box .tab").length > 0 ) {
+
+                $(".tabs:eq("+ indexTabs +") .tabs-content-box .tab").css({"display" : "none"});
+
+                $(".tabs:eq("+ indexTabs +") .tab-link").each(function() {
+
+                    if($(this).hasClass("active")) {
+
+                        indexActiveTab = $(this).attr("data-tab-link-index");
+
+                        $(".tabs:eq("+ indexTabs +") .tabs-content-box .tab[data-tab-link = '"+ indexActiveTab +"']").fadeIn(300)
+
+                    }
+
+                });
+
+            }
+
+        }     
+
+    });
+
+    $(function() {
+
+        $(".tabs .tab-nav li .tab-link").click(function() {
+
+            parentEl = $(this).parent();
+
+            for(;;) {
+
+                parentEl = parentEl.parent();
+
+                if(parentEl.hasClass("tabs")) {
+
+                    indexTabs = $(".tabs").index(parentEl);
+
+                    break;
+
+                }
+
+            }
+
+            attrForActiveTabNav = $(this).attr("data-tab-link-index");
+
+            if($(".tabs:eq("+ indexTabs +") .tab[data-tab-link = '"+ attrForActiveTabNav +"']").is(":hidden")) {
+
+                $(".tabs:eq("+ indexTabs +") .tab-nav li .tab-link").removeClass("active");
+
+                $(this).addClass("active");
+
+                $(".tabs:eq("+ indexTabs +") .tab").each(function() {
+
+                    if($(this).is(":visible") && $(this).attr("data-tab-link") != attrForActiveTabNav) {
+
+                        $(".tabs:eq("+ indexTabs +") .tabs-content-box").height($(this).height());
+
+                    }
+
+                });
+
+                $(".tabs:eq("+ indexTabs +") .tab").fadeOut(300);
+
+                setTimeout(function() {
+
+                    $(".tabs:eq("+ indexTabs +") .tab[data-tab-link = '"+ attrForActiveTabNav +"']").fadeIn(300);
+
+                    $(".tabs:eq("+ indexTabs +") .tabs-content-box").animate({"height" : $(".tabs:eq("+ indexTabs +") .tab[data-tab-link = '"+ attrForActiveTabNav +"']").height() + "px"}, 300);
+
+                }, 400);
+ 
+                setTimeout(function() {
+
+                    $(".tabs:eq("+ indexTabs +") .tabs-content-box").css({"height" : "auto"});
+
+                }, 800);
+
+            }
+
+        });
+
+    });
+
+    // ------ /Tabs -------
+
     $(".scroll-top").click(function () {
 
         $("body,html").animate({
