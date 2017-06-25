@@ -310,6 +310,45 @@ $(document).ready(function() {
 
     // ------ /Tabs -------
 
+    // ----------------------------------
+
+    $(function() {
+
+        var attrPopupName;
+
+        $(".show_popup").click(function() {
+
+            attrPopupName = $(this).attr("data-popup-name");
+
+            $(".popups-sect").fadeIn(500);
+
+            $("[data-popup = '"+ attrPopupName +"']").fadeIn(500);
+
+        });
+
+        $(".popup-bg, .close_popup").click(function() {
+
+            $(".popups-sect").fadeOut(500);
+
+            $("[data-popup = '"+ attrPopupName +"']").fadeOut(500);
+
+        });
+
+        $(this).keydown(function(eventObject){
+
+            if (eventObject.which == 27) {
+
+                $(".popups-sect").fadeOut(400);
+                $(".popup").fadeOut(400);
+
+            }
+
+        });
+
+    });
+
+    // ----------------------------------
+
     $(".scroll-top").click(function () {
 
         $("body,html").animate({
