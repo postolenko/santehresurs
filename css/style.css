@@ -2177,6 +2177,7 @@ section.promo-sect {
     display: none;
     width: 41px;
     height: 100%;
+    padding: 0 0 19% 0;
     cursor: pointer;
     position: absolute;
     top: 0;
