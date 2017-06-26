@@ -2140,17 +2140,18 @@ section.promo-sect {
 
 .sidebar .sidebar-nav {
     height: 0;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 .sidebar.active .sidebar-nav  {
+    height: auto;
     overflow: visible !important;
 }
 
-.sidebar.active .sidebar-nav {
+/*.sidebar.active .sidebar-nav {
     height: auto;
     overflow: visible;
-}
+}*/
 
 .sidebar.active .nav-header {
     background: rgba(107, 171, 68, 1);
@@ -3143,7 +3144,7 @@ a.to-diff:hover .lib-small:after {
 .catalog-sort-list {
     display: inline-block;
     vertical-align: bottom;
-    width: 82%;
+    width: 78%;
 }
 
 .catalog-sort-list li {
@@ -3218,7 +3219,7 @@ a.to-diff:hover .lib-small:after {
 .catalog-views-btns {
     display: inline-block;
     vertical-align: bottom;
-    width: 18%;
+    width: 22%;
 }
 
 .catalog-th-btn {
@@ -3388,7 +3389,7 @@ a.to-diff:hover .lib-small:after {
 }
 
 .catalog-sort-row {
-    padding: 19px 0 16px 0;
+    padding: 19px 0 6px 0;
     overflow: hidden;
     border-bottom: 1px solid #cbcbcb;
 }
@@ -3402,15 +3403,17 @@ a.to-diff:hover .lib-small:after {
 }
 
 .select-box {
-    display: inline-block;
+    /*display: inline-block;*/
+    display: inline-table;
     vertical-align: top;
     margin: 0 2% 0 0;
     padding: 11px 0 16px 0;
 }
 
 .catalog-sort-row label {
-    display: inline-block;
-    vertical-align: middle;
+    /*display: inline-block;*/
+    display: table-cell;
+    vertical-align: top;
     min-width: 66px;
     text-align: right;
     font-family: "Roboto", Arial, Verdana, sans-serif;
@@ -3421,12 +3424,16 @@ a.to-diff:hover .lib-small:after {
     padding: 4px 1.5% 4px 0;
 }
 
-.catalog-sort-row select {
-    display: inline-block;
-    vertical-align: middle;
+.catalog-sort-row select,
+.select-box .select2-container {
+    /*display: inline-block;*/
+    display: table-cell;
+    vertical-align: top;
     padding: 0 2%;
-    max-width: 251px;
-    width: 29%;
+    width: 262px;
+    /*width: 100%;*/
+    /*max-width: 251px;*/
+    /*max-width: 260px;*/
     font-family: "Roboto", Arial, Verdana, sans-serif;
     font-size: 16px;
     line-height: 31px;
@@ -3451,9 +3458,12 @@ a.to-diff:hover .lib-small:after {
 }
 
 .range-slider-block {
+    /*display: inline-block;*/
     display: inline-table;
     vertical-align: top;
     width: 58%;
+    margin: 0 0 10px 0;
+    padding: 3px 0 16px 0;
 }
 
 .range-slider-block .cell {
@@ -3465,20 +3475,31 @@ a.to-diff:hover .lib-small:after {
     width: 56px;
 }
 
+.range-slider-block .cell-2 {
+    width: auto;
+    max-width: 454px;
+}
+
 
 .range-slider-header {
+    display: inline-table;
+    vertical-align: top;
+    width: 100%;
+    /*max-width: 354px;*/
     padding: 3px 0 0 0;
 }
 
 .range-slider-header p {
-    display: inline-block;
+    display: table-cell;
     vertical-align: bottom;
 }
 
 .range-slider-header .input-range-box {
-    display: inline-block;
+    display: table-cell;
     vertical-align: bottom;
+    width: 166px;
     padding: 5px 0;
+    text-align: left;
 }
 
 .range-slider-header .input-range-box:nth-child(2) {
@@ -3488,15 +3509,23 @@ a.to-diff:hover .lib-small:after {
 .input-range-box label,
 .input-range-box .price-sl-input,
 .input-range-box p {
-    display: inline-block;
+    display: table-cell;
     vertical-align: bottom;
-    min-width: auto;
+    width: auto;
     font-family: "Roboto", Arial, Verdana, sans-serif;
     font-size: 16px;
     line-height: 22px;
     font-weight: normal;
     color: #121111;
     margin: 0 5px 0 0;
+}
+
+.input-range-box label {
+    /*width: 60px;*/
+    width: auto;
+    min-width: 38px;
+    padding: 0 3% 4px 0;
+    text-align: center;
 }
 
 .input-range-box .price-sl-input {
@@ -3558,6 +3587,7 @@ a.to-diff:hover .lib-small:after {
     display: inline-block;
     vertical-align: top;
     width: 33.33%;
+    padding: 0 2% 0 0;
 }
 
 .catalog-links li {
@@ -3614,12 +3644,14 @@ a.to-diff:hover .lib-small:after {
 
 .catalog-thubnails {
     padding: 16px 0;
+    text-align: center;
 }
 
 .catalog-thubnails .good-thumb {
     display: inline-block;
     vertical-align: top;
-    width: 25%;
+    /*width: 25%;*/
+    width: 278px;
 }
 
 .catalog-thubnails .good-thumb .inner {
@@ -3923,7 +3955,7 @@ a.to-diff:hover .lib-small:after {
 
 .table-row select {
     width: 100%;
-    min-width: 270px !important; 
+    /*min-width: 270px !important;*/
 }
 
 .radio-block {
@@ -4331,6 +4363,15 @@ button.green-pill:hover {
 }
 
 .two-cols-box .col-2 {
+    width: auto;
+}
+
+.card-promo-block .two-cols-box .col-1 {
+    width: 41px;
+    padding: 8px 0 0 0;
+}
+
+.card-promo-block .two-cols-box .col-2 {
     width: auto;
 }
 

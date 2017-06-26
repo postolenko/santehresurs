@@ -335,22 +335,37 @@ $(document).ready(function() {
       autoplay: true,
       autoplaySpeed: 17000,
       appendArrows: $(".last-saw-append-arrows"),
-         responsive: [
+      responsive: [
         {
-          breakpoint: 923,
+          breakpoint: 1140,
           settings: {
             slidesToShow: 3
           }
         },
         {
-          breakpoint: 689,
+          breakpoint: 1000,
+          settings: {
+            centerMode: true,
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 750,
           settings: {
             slidesToShow: 2
           }
         },
         {
-          breakpoint: 490,
+          breakpoint: 640,
           settings: {
+            centerMode: true,
+            slidesToShow: 1
+          }
+        },
+        {
+          breakpoint: 430,
+          settings: {
+            centerMode: false,
             slidesToShow: 1
           }
         }
@@ -381,21 +396,21 @@ $(document).ready(function() {
       asNavFor: ".card-big-slider",
       responsive: [
         {
-          breakpoint: 923,
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 5
+          }
+        },
+        {
+          breakpoint: 590,
+          settings: {
+            slidesToShow: 4
+          }
+        },
+        {
+          breakpoint: 370,
           settings: {
             slidesToShow: 3
-          }
-        },
-        {
-          breakpoint: 689,
-          settings: {
-            slidesToShow: 2
-          }
-        },
-        {
-          breakpoint: 490,
-          settings: {
-            slidesToShow: 1
           }
         }
       ]
@@ -413,22 +428,37 @@ $(document).ready(function() {
       autoplay: true,
       autoplaySpeed: 17000,
       appendArrows: $(".simmilar-goods-append-arrows"),
-         responsive: [
+      responsive: [
         {
-          breakpoint: 923,
+          breakpoint: 1140,
           settings: {
             slidesToShow: 3
           }
         },
         {
-          breakpoint: 689,
+          breakpoint: 1000,
+          settings: {
+            centerMode: true,
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 750,
           settings: {
             slidesToShow: 2
           }
         },
         {
-          breakpoint: 490,
+          breakpoint: 640,
           settings: {
+            centerMode: true,
+            slidesToShow: 1
+          }
+        },
+        {
+          breakpoint: 430,
+          settings: {
+            centerMode: false,
             slidesToShow: 1
           }
         }

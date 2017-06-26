@@ -535,17 +535,29 @@ $(document).ready(function() {
 
     function getSelectSize() {
 
-        parentSelectWidht =  $(".catalog-sort-row").width();
+        // parentSelectWidht =  $(".catalog-sort-row").width();
 
-        selectWidht = parentSelectWidht * .29;
+        // selectWidht = parentSelectWidht * .29;
 
-        if( selectWidht > 250 ) {
+        // if( bodyWidth <= 600 ) {
 
-            selectWidht = 250
+        //     selectWidht = parentSelectWidht;
 
-        }
+        // }
 
-        $(".catalog-sort-row .select-box select").width(selectWidht);
+        // if( selectWidht > 250 ) {
+
+        //     selectWidht = 250
+
+        // }
+
+        // console.log(selectWidht);
+
+        // setTimeout(function() {
+
+        //     $(".catalog-sort-row .select-box .select2-container").width(selectWidht);
+
+        // }, 300);
 
     }
 
@@ -613,14 +625,20 @@ $(document).ready(function() {
 
             $(".sidebar-nav").mCustomScrollbar("destroy");
 
-            $(".sidebar-nav").css({
-                "height" : "auto"
-            });
+            
 
-            $(".sidebar").css({
-                "height" : "auto",
-                "margin-top" : 0 + "px"             
-            });
+            if( $(".sidebar").hasClass("active") ) {
+
+                $(".sidebar-nav").css({
+                    "height" : "auto"
+                });
+
+                $(".sidebar").css({
+                    "height" : "auto",
+                    "margin-top" : 0 + "px"             
+                });
+
+            }
 
         }        
 
