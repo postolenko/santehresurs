@@ -165,7 +165,7 @@
 	}
 
 	.sidebar.active .nav-header {
-		background: rgba(107, 171, 68, .8);
+		background: rgba(107, 171, 68, .7);
 	}
 
 	.sidebar.active .nav-header:hover {
@@ -816,6 +816,23 @@
 	}
 
 	/*-- /Header --*/
+
+	/*-- Sidebar --*/
+
+	.nav-header {
+	    width: 31px;
+	}
+
+	.burger span {
+	    width: 24px;
+	}
+
+	.nav-header .p-1 {
+	    font-size: 21px;
+	    line-height: 23px;
+	}
+
+	/*-- /Sidebar --*/
 
 	/*-- Section 6 Main Page --*/
 
