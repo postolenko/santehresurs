@@ -43,7 +43,6 @@ CONTENTS:
 	}
 
 
-
 /* 
 ------------------------------------------------------------------------------------------------------------------------
 2. VERTICAL SCROLLBAR 
@@ -1294,4 +1293,21 @@ yx-axis
 .mCSB_scrollTools .mCSB_draggerRail {
 	background-color: rgb(219, 219, 219);
 	background: rgba(219, 219, 219, 1);
+}
+
+.main-nav-wrapp .mCSB_scrollTools {
+    opacity: 0;
+}
+
+@media only screen and (max-width: 768px) {
+
+	.main-nav-wrapp .mCSB_scrollTools {
+	    opacity: 1;
+	}
+
+}
+
+.sidebar-nav .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    position: relative;
+    right: 4px;
 }

@@ -11,27 +11,22 @@ $(document).ready(function() {
   })(jQuery);
 
 
-  $(".sidebar-nav-list > li").hoverIntent({
-      over: makeTallMenuItemSection,
-      out: makeShortMenuItemSection,
-      timeout: 4000
-  });
+    $(".sidebar-nav-list > li").hoverIntent({
+        over: makeTallMenuItemSection,
+        out: makeShortMenuItemSection,
+        timeout: 3000
+    });
 
-	var hoverItem;
-	var listHeight;
-	var heightInterval;
+
+  	var hoverItem;
+  	var listHeight;
+  	var heightInterval;
 
     function makeTallMenuItemSection(){
 
     	hoverItemIndex = $(this).index();
 
-    	console.log(hoverItemIndex);
-
-    	// listHeight = hoverItem.children(".inner-nav").height();
-
-    	listHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp .inner-nav").height();
-
-        // hoverItemHeight = $(this).children(".inner-nav-wrapp").height();
+    	 listHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp .inner-nav").height();
 
         hoverItemHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height();
 
@@ -43,26 +38,21 @@ $(document).ready(function() {
 
         		if( $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height() >=  listHeight ) {
 
-        			clearInterval(heightInterval);
-
-        			$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").css({
-                                                                                    "overflow" : "initial",
+              $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").css({
+                                                                                    "overflow" : "visible",
                                                                                     "height": "auto"
                                                                                   });
+        			clearInterval(heightInterval);
+        			
         		}
 
-        	}, 70);
+        	}, 35);
 
         }
 
     }
 
     function makeShortMenuItemSection(){
-
-    	// hoverItem = $(this).children(".inner-nav-wrapp");
-    	// listHeight = hoverItem.children(".inner-nav").height();
-
-        // hoverItemHeight = $(this).children(".inner-nav-wrapp").height();
 
     		hoverItemIndex = $(this).index();
     		listHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp .inner-nav").height();
@@ -79,14 +69,15 @@ $(document).ready(function() {
 
             if( $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height() <= 0 ) {
 
-              clearInterval(heightInterval);
-              $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").css({
-                                                                                    "overflow": "hidden",
-                                                                                    "height": 0 + "px"
-                                                                                  });
+                $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").css({
+                                                                        "overflow": "hidden",
+                                                                        "height": 0 + "px"
+                                                                      });
+                clearInterval(heightInterval);
+
             }
 
-          }, 70);  	
+          }, 35);  	
 
         }
 
@@ -107,19 +98,31 @@ $(document).ready(function() {
       appendArrows: $(".bradslider-arrows-append"),
          responsive: [
         {
-          breakpoint: 923,
+          breakpoint: 1128,
+          settings: {
+            slidesToShow: 5
+          }
+        },
+        {
+          breakpoint: 900,
+          settings: {
+            slidesToShow: 4
+          }
+        },
+        {
+          breakpoint: 768,
           settings: {
             slidesToShow: 3
           }
         },
         {
-          breakpoint: 689,
+          breakpoint: 490,
           settings: {
             slidesToShow: 2
           }
         },
         {
-          breakpoint: 490,
+          breakpoint: 350,
           settings: {
             slidesToShow: 1
           }
@@ -132,6 +135,7 @@ $(document).ready(function() {
       dots: false,
       arrows: true,
       speed: 700,
+      // centerMode: true,
       slidesToShow: 4,
       slideToScroll: 1,
       focusOnSelect: true,
@@ -140,20 +144,35 @@ $(document).ready(function() {
       appendArrows: $(".goods-append-arrows"),
          responsive: [
         {
-          breakpoint: 923,
+          breakpoint: 1140,
           settings: {
             slidesToShow: 3
           }
         },
         {
-          breakpoint: 689,
+          breakpoint: 1000,
+          settings: {
+            centerMode: true,
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 750,
           settings: {
             slidesToShow: 2
           }
         },
         {
-          breakpoint: 490,
+          breakpoint: 640,
           settings: {
+            centerMode: true,
+            slidesToShow: 1
+          }
+        },
+        {
+          breakpoint: 430,
+          settings: {
+            centerMode: false,
             slidesToShow: 1
           }
         }
@@ -170,22 +189,37 @@ $(document).ready(function() {
       autoplay: true,
       autoplaySpeed: 17000,
       appendArrows: $(".discount-goods-slider-arrows"),
-         responsive: [
+       responsive: [
         {
-          breakpoint: 923,
+          breakpoint: 1140,
           settings: {
             slidesToShow: 3
           }
         },
         {
-          breakpoint: 689,
+          breakpoint: 1000,
+          settings: {
+            centerMode: true,
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 750,
           settings: {
             slidesToShow: 2
           }
         },
         {
-          breakpoint: 490,
+          breakpoint: 640,
           settings: {
+            centerMode: true,
+            slidesToShow: 1
+          }
+        },
+        {
+          breakpoint: 430,
+          settings: {
+            centerMode: false,
             slidesToShow: 1
           }
         }
