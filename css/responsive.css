@@ -651,6 +651,14 @@
 	    line-height: 20px;
 	}
 
+	.succes-send {
+	    margin: 11px auto 32px auto;
+	}
+
+	h2.bottom-shape:after {
+	    margin: 20px auto 29px auto;
+	}
+
 	/*-- /Popups --*/
 
 }
