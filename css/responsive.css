@@ -628,6 +628,30 @@
 
 	/*-- /Footer --*/
 
+	/*-- Popups --*/
+
+	.popup {
+	    margin: 60px 0;
+	    padding: 42px 0 27px 0;
+	}
+
+	.popup h2 {
+	    font-size: 22px;
+	    line-height: 24px;
+	    padding: 0 4%;
+	}
+
+	.popup .input-block {
+	    margin: 17px 0;
+	}
+
+	.popup .submit-btn {
+	    padding: 12px 9%;
+	    font-size: 17px;
+	    line-height: 20px;
+	}
+
+	/*-- /Popups --*/
 
 }
 
@@ -785,6 +809,17 @@
 
 	/*-- /Header --*/
 
+	/*-- Section 6 Main Page --*/
+
+	.submit-btn {
+	    margin: 20px 0;
+	    padding: 14px 7%;
+	    font-size: 16px;
+	    font-weight: normal;
+	}
+
+	/*-- /Section 6 Main Page --*/
+
 	/*-- Section 7 Main Page --*/
 
 	.news-thumb {
@@ -834,6 +869,32 @@
 	}
 
 	/*-- /Footer --*/
+
+
+	/*-- Popups --*/
+/*
+	.popup {
+	    margin: 60px 0;
+	    padding: 42px 0 27px 0;
+	}*/
+
+	.popup h2 {
+	    font-size: 19px;
+	    line-height: 24px;
+	    padding: 0 4%;
+	}
+
+/*	.popup .input-block {
+	    margin: 17px 0;
+	}*/
+
+	.popup .submit-btn {
+	    padding: 6px 9%;
+		font-size: 14px;
+		line-height: 20px;
+	}
+
+	/*-- /Popups --*/
 
 }
 
