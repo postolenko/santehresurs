@@ -880,21 +880,12 @@
 
 
 	/*-- Popups --*/
-/*
-	.popup {
-	    margin: 60px 0;
-	    padding: 42px 0 27px 0;
-	}*/
 
 	.popup h2 {
 	    font-size: 19px;
 	    line-height: 24px;
 	    padding: 0 4%;
 	}
-
-/*	.popup .input-block {
-	    margin: 17px 0;
-	}*/
 
 	.popup .submit-btn {
 	    padding: 6px 9%;
@@ -942,6 +933,8 @@
 
 	.inner-nav li a {
 	    padding: 7px 2% 3px 10%;
+	    font-size: 16px;
+	    line-height: 30px;
 	}
 
 }
