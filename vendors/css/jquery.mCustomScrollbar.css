@@ -1299,10 +1299,22 @@ yx-axis
     opacity: 0;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 769px) {
 
 	.main-nav-wrapp .mCSB_scrollTools {
 	    opacity: 1;
+	}
+
+	.header-site:hover .mCSB_scrollTools {
+	    opacity: 1;
+	}
+
+}
+
+@media only screen and (min-width: 768px) {
+
+	.header-site:hover .mCSB_scrollTools {
+	    opacity: 0;
 	}
 
 }
