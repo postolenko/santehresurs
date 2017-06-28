@@ -19,9 +19,26 @@ $(document).ready(function() {
 
     // ----------------------------
 
-    getFooterPosition();
+    var sidebarAutoHeight;
+    var siddebarHeightInterval;
 
-    getSelectSize();
+    // ----------------------------
+
+    var parentEl;
+    var indexCard;
+    var countElementsInputIndex;
+    var countElementsVal;
+    var priceGood;
+    var priceMultiple;
+    var priceMultipleVal = 0;
+
+    // ----------------------------
+
+    var attrPopupName;;
+
+    // ----------------------------
+
+    getFooterPosition();
 
     getBodyPaddingTop();
 
@@ -40,8 +57,6 @@ $(document).ready(function() {
         bodyWidth = w.innerWidth || e.clientWidth || g.clientWidth;
 
         // --------------------
-
-        getSelectSize();
 
         getBodyPaddingTop();
 
@@ -65,8 +80,8 @@ $(document).ready(function() {
 
     $(function() {
 
-        var sidebarAutoHeight;
-        var siddebarHeightInterval;        
+        // var sidebarAutoHeight;
+        // var siddebarHeightInterval;        
 
         $("#sidebar").click(function() {
 
@@ -161,13 +176,13 @@ $(document).ready(function() {
 
      $(function() {
         
-        var parentEl;
-        var indexCard;
-        var countElementsInputIndex;
-        var countElementsVal;
-        var priceGood;
-        var priceMultiple;
-        var priceMultipleVal = 0;
+        // var parentEl;
+        // var indexCard;
+        // var countElementsInputIndex;
+        // var countElementsVal;
+        // var priceGood;
+        // var priceMultiple;
+        priceMultipleVal = 0;
 
         $(".good-card .choise-count button").click(function(countGoodsEvent) {
 
@@ -254,7 +269,7 @@ $(document).ready(function() {
 
     // ----------------------------
 
-        // ------ Tabs -------
+    // ------ Tabs -------
 
     $(function() {
 
@@ -348,7 +363,7 @@ $(document).ready(function() {
 
     $(function() {
 
-        var attrPopupName;
+        // var attrPopupName;
 
         $(".show_popup").click(function() {
 
@@ -417,80 +432,6 @@ $(document).ready(function() {
 
     });
 
-
-    $(function() {
-
-        $(".inner-nav-wrapp .inner-nav").each(function() {
-
-            if( $(this).parent(".inner-nav-wrapp").length == 0 ) {
-
-                $(this).before("<button type='button' class='show_inner_nav'></button>");
-
-            }
-
-        });
-
-        $(".show_inner_nav").click(function() {
-
-            if( $(this).next(".inner-nav").height() > 0 ) {                
-
-                $(this).removeClass("active");
-
-                $(this).next(".inner-nav").css({
-                    "display" : "none",
-                    "height": "0",
-                    "overflow": "hidden"
-                });
-
-            } else {
-
-               $(this).addClass("active");
-
-                $(this).next(".inner-nav").css({
-                    "display" : "block",
-                    "height": "auto",
-                    "overflow": "visible"
-                });
-
-            }            
-
-        });
-
-        $(".inner-nav-wrapp").each(function() {
-
-            $(this).before("<button type='button' class='show_inner_list'></button>");
-
-        });
-
-        $(".show_inner_list").click(function() {
-
-            if( $(this).next(".inner-nav-wrapp").height() > 0 ) {
-
-                $(this).removeClass("active");
-
-                $(this).next(".inner-nav-wrapp").css({
-                    "display" : "none",
-                    "height": "0",
-                    "overflow": "hidden"
-                });
-
-            } else {                
-
-                $(this).addClass("active");
-
-                $(this).next(".inner-nav-wrapp").css({
-                    "display" : "block",
-                    "height": "auto",
-                    "overflow": "visible"
-                });
-
-            }            
-
-        });
-
-
-    });
-
     // ----------------------------------
 
     $(".scroll-top").click(function () {
@@ -533,33 +474,6 @@ $(document).ready(function() {
 
     }
 
-    function getSelectSize() {
-
-        // parentSelectWidht =  $(".catalog-sort-row").width();
-
-        // selectWidht = parentSelectWidht * .29;
-
-        // if( bodyWidth <= 600 ) {
-
-        //     selectWidht = parentSelectWidht;
-
-        // }
-
-        // if( selectWidht > 250 ) {
-
-        //     selectWidht = 250
-
-        // }
-
-        // console.log(selectWidht);
-
-        // setTimeout(function() {
-
-        //     $(".catalog-sort-row .select-box .select2-container").width(selectWidht);
-
-        // }, 300);
-
-    }
 
     function getBodyPaddingTop() {
 

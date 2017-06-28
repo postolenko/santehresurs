@@ -4,7 +4,6 @@
 		padding: 0 2%;
 	}
 
-
 }
 
 
@@ -85,19 +84,6 @@
 	}
 
 	/*-- /Section 8 Main Page --*/
-
-	/*-- Section 2 Categories Page --*/
-
-
-/*	.catalog-thubnails {
-		text-align: center;
-	}
-
-	.catalog-thubnails .good-thumb {
-	    width: 278px;
-	}*/
-
-	/*-- /Section 2 Categories Page --*/
 
 }
 
@@ -215,10 +201,6 @@
 		display: block;
 		width: 70%;
 		min-width: 290px;
-	}
-
-	.sidebar {
-
 	}
 
 	.inner-nav li .inner-nav {
@@ -408,7 +390,6 @@
 
 	.main-nav-wrapp {
 		display: block;
-		/*display: none;*/
 		width: 100%;
 		height: 100vh;
 		padding-bottom: 30px;
@@ -634,6 +615,7 @@
 
 	.fixed-block {
 	    width: 63px;
+	    height: 116px;
 	    top: initial;
 	    bottom: 0;
 	    right: 1px;
@@ -884,12 +866,6 @@
 
 	/*-- /Section 1 Main Page --*/
 
-	/*-- Section 2 Main Page --*/
-
-
-
-	/*-- /Section 2 Main Page --*/
-
 	/*-- Section 8 Main Page --*/
 
 	.advantage-thumb {
@@ -1083,11 +1059,6 @@
 	    font-size: 22px;
 	    line-height: 24px;
 	}
-/*
-	.catalog-sort-row select,
-	.select-box .select2-container {
-		width: 150px !important;
-	}*/
 
 	.select-cell .cell-1,
 	.select-cell .cell-2 {

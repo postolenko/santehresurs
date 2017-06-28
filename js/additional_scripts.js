@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+    var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    bodyWidth = w.innerWidth || e.clientWidth || g.clientWidth;
+
   (function($){
 
     $(window).on("load",function(){
@@ -22,50 +28,176 @@ $(document).ready(function() {
   	var listHeight;
   	var heightInterval;
 
-    function makeTallMenuItemSection(){
+    // ------------------
 
-    	hoverItemIndex = $(this).index();
+    var priceSlider;
+    var values;
+    var setButtonMinus;
+    var setButtonPlu;
+    var inputNumberMin;
+    var inputNumberMax;
+    var setStep;
+    var leftRange;
+    var rightRange;
+    var activeInputVal;
 
-    	 listHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp .inner-nav").height();
+    // ------------------
 
-        hoverItemHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height();
+
+    $(window).resize(function() {
+
+      bodyWidth = w.innerWidth || e.clientWidth || g.clientWidth;
+
+      if( bodyWidth > 900 ) {
+
+        $(".inner-nav .inner-nav").attr("style", "");
+
+      }
+
+    });
+
+    $(function() {
+
+      $(".inner-nav-wrapp").each(function() {
+
+          $(this).before("<button type='button' class='show_inner_list'></button>");
+
+      });
+
+      $(".show_inner_list").click(function() {
+
+          hoverItemIndex = $(this).parent(".sidebar-nav-list > li").index(".sidebar-nav-list > li");
+
+          if( $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height() > 0 ) {
+
+              $(this).removeClass("active");
+
+              closeMenu();
+
+          } else {                
+
+              $(this).addClass("active");
+
+              openMenu();
+
+          }            
+
+      });
+
+    });
+
+    $(function() {
+
+        $(".inner-nav-wrapp .inner-nav").each(function() {
+
+            if( $(this).parent(".inner-nav-wrapp").length == 0 ) {
+
+                $(this).before("<button type='button' class='show_inner_nav'></button>");
+
+            }
+
+        });
+
+        $(".show_inner_nav").click(function() {
+
+            if( $(this).next(".inner-nav").height() > 0 ) {                
+
+                $(this).removeClass("active");
+
+                $(this).next(".inner-nav").css({
+                    "display" : "none",
+                    "height": "0",
+                    "overflow": "hidden"
+                });
+
+            } else {
+
+               $(this).addClass("active");
+
+                $(this).next(".inner-nav").css({
+                    "display" : "block",
+                    "height": "auto",
+                    "overflow": "visible"
+                });
+
+            }            
+
+        });
+
+    });
+
+
+    function makeTallMenuItemSection(e){
+
+      if( bodyWidth <= 900 ) {
+
+        e.preventDefault();
+
+      } else {
+
+        hoverItemIndex = $(this).index();
+
+        openMenu();
+
+      }
+
+    }
+
+    function makeShortMenuItemSection(e){
+
+      if( bodyWidth <= 900 ) {
+
+        e.preventDefault();
+
+      } else {
+
+      	hoverItemIndex = $(this).index();
+
+        closeMenu();
+
+      }
+
+    }
+
+    function openMenu() {
+
+      listHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp .inner-nav").height();
+      hoverItemHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height();
 
         if( hoverItemHeight <= 0 ) {
 
-        	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").animate({"height" : listHeight + "px"}, 400);
+          $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").animate({"height" : listHeight + "px"}, 400);
 
-        	heightInterval = setInterval(function() {
+          heightInterval = setInterval(function() {
 
-        		if( $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height() >=  listHeight ) {
+            if( $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height() >=  listHeight ) {
 
               $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").css({
                                                                                     "overflow" : "visible",
                                                                                     "height": "auto"
                                                                                   });
-        			clearInterval(heightInterval);
-        			
-        		}
+              clearInterval(heightInterval);
+              
+            }
 
-        	}, 35);
+          }, 35);
 
         }
-
     }
 
-    function makeShortMenuItemSection(){
+    function closeMenu() {
 
-    		hoverItemIndex = $(this).index();
-    		listHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp .inner-nav").height();
-    		hoverItemHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height();
+        listHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp .inner-nav").height();
+        hoverItemHeight = $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height();
 
         if( hoverItemHeight >= listHeight  ) {
 
-        	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").css({"overflow" : "hidden"});
+          $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").css({"overflow" : "hidden"});
           
 
-        	$(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").animate({"height" : 0 + "px"}, 400);
+          $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").animate({"height" : 0 + "px"}, 400);
 
-        	heightInterval = setInterval(function() {
+          heightInterval = setInterval(function() {
 
             if( $(".sidebar-nav-list > li:eq("+ hoverItemIndex +") .inner-nav-wrapp").height() <= 0 ) {
 
@@ -77,7 +209,7 @@ $(document).ready(function() {
 
             }
 
-          }, 35);  	
+          }, 35);   
 
         }
 
@@ -135,7 +267,6 @@ $(document).ready(function() {
       dots: false,
       arrows: true,
       speed: 700,
-      // centerMode: true,
       slidesToShow: 4,
       slideToScroll: 1,
       focusOnSelect: true,
@@ -232,8 +363,8 @@ $(document).ready(function() {
 
     if( document.getElementById("price_slider") ) {
 
-      var priceSlider = document.getElementById("price_slider");
-      var values;
+      priceSlider = document.getElementById("price_slider");
+      // var values;
 
       noUiSlider.create(priceSlider, {
           start: [ 1000, 3500 ],
@@ -243,18 +374,18 @@ $(document).ready(function() {
           }
       });
 
-      var setButtonMinus = document.getElementById("setMinus");
-      var setButtonPlus = document.getElementById("setPlus");
+      setButtonMinus = document.getElementById("setMinus");
+      setButtonPlus = document.getElementById("setPlus");
 
-      var inputNumberMin = document.getElementById("input-number_1");
-      var inputNumberMax = document.getElementById("input-number_2");
+      inputNumberMin = document.getElementById("input-number_1");
+      inputNumberMax = document.getElementById("input-number_2");
 
-      var setStep = 200;
+      setStep = 200;
 
-      var leftRange;
-      var rightRange;
+      // var leftRange;
+      // var rightRange;
 
-      var activeInputVal;
+      // var activeInputVal;
 
       priceSlider.noUiSlider.on('update', function( values, handle ) {
 
@@ -294,11 +425,6 @@ $(document).ready(function() {
               priceSlider.noUiSlider.set([leftRange, null]);
 
           }
-          // else {
-
-          //     $(this).attr("value", activeInputVal );
-
-          // }
 
       });
 
@@ -313,11 +439,6 @@ $(document).ready(function() {
               priceSlider.noUiSlider.set([null, rightRange]);
 
           }
-          // else {
-
-          //     $(this).attr("value", activeInputVal );
-
-          // }
 
       });
 
